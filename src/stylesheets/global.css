@@ -1,0 +1,28 @@
+:root {
+  --color-background: #121212;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
+  --color-user-bubble-gradient-start: #fc8ecc;
+  --color-user-bubble-gradient-end: #a20ba2;
+  --color-bot-bubble: #1e1e1e;
+  --color-button-background: #d16ba5;
+  --color-button-text: #ffffff;
+  --color-divider: rgba(255, 255, 255, 0.1);
+  --color-icon: #ffffff;
+}
+
+body {
+  background: linear-gradient(
+    90deg,
+    var(--color-user-bubble-gradient-start),
+    var(--color-user-bubble-gradient-end)
+  );
+  color: var(--color-button-text);
+  padding: 1rem;
+  border-radius: 1.5rem;
+  max-width: 70%;
+  margin: 0.5rem 0;
+
+  /* background-color: var(--color-background); */
+  /* background-color: var(--color-bot-bubble); */
+}

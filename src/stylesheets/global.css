@@ -12,17 +12,9 @@
 }
 
 body {
-  background: linear-gradient(
-    90deg,
-    var(--color-user-bubble-gradient-start),
-    var(--color-user-bubble-gradient-end)
-  );
-  color: var(--color-button-text);
-  padding: 1rem;
-  border-radius: 1.5rem;
-  max-width: 70%;
-  margin: 0.5rem 0;
-
-  /* background-color: var(--color-background); */
-  /* background-color: var(--color-bot-bubble); */
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
 }

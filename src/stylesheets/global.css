@@ -2,8 +2,8 @@
   --color-background: #121212;
   --color-text-primary: #ffffff;
   --color-text-secondary: #b0b0b0;
-  --color-user-bubble-gradient-start: #fc8ecc;
-  --color-user-bubble-gradient-end: #a20ba2;
+  --color-user-bubble-gradient-start: #fc4baf;
+  --color-user-bubble-gradient-end: #660466;
   --color-bot-bubble: #1e1e1e;
   --color-button-background: #d16ba5;
   --color-button-text: #ffffff;
@@ -14,7 +14,8 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   height: 100dvh;
-  width: 100dvw;
+  width: 100vw;
   background-color: var(--color-background);
   color: var(--color-text-primary);
+  position: relative;
 }

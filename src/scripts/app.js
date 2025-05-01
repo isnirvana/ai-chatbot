@@ -64,12 +64,26 @@ async function renderOnPage() {
       },
     })
 
+    const loader = document.querySelector(".loader-container")
+    loader.remove()
+
     const html = marked.parse(message)
     console.log(results)
     createAssistantHTML(html)
   } catch (error) {
     console.error(error)
   }
+}
+
+function createLoaderHtml() {
+  const loader = createElement("div", "loader-container")
+
+  loader.innerHTML = `
+    <span class="loader"></span>
+        <img src="${logo}" alt="logo" />
+  `
+
+  main.appendChild(loader)
 }
 
 function createUserHTML() {
@@ -126,8 +140,8 @@ main.addEventListener("click", async (e) => {
 
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Enter") return
-  console.log(e.key)
   createUserHTML()
+  createLoaderHtml()
   renderOnPage()
   input.value = ""
 })

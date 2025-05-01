@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Chatbot</title>
     <link rel="stylesheet" href="./stylesheets/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/highlight.min.js"></script>
+
     <script
       src="https://kit.fontawesome.com/5f6b1987ad.js"
       crossorigin="anonymous"
@@ -29,35 +36,8 @@
       </div>
     </header>
     <main>
-      <div class="user">
-        <div class="user__massage">
-          <div class="message-text">
-            Quick Explanation: to top left → means the gradient moves toward the
-            top-left corner. The first color appears at the bottom right, and it
-            blends into the second color at the top left. Visually, it would
-            look like the chat bubble in the image you posted — lighter pink at
-            the bottom, transitioning to cooler blue/purple at the top left.
-          </div>
-          <div class="user__profile"></div>
-        </div>
-      </div>
-      <div class="assistant">
-        <div class="assistant__massage">
-          <div class="message-text">
-            Quick Explanation: to top left → means the gradient moves toward
-          </div>
-          <hr />
-          <div class="assistant__massage--icons">
-            <i class="fa-regular fa-copy"></i>
-            <i class="fa-solid fa-arrows-rotate"></i>
-          </div>
-        </div>
-        <div class="assistant__profile">
-          <img src="./assets/icons/logo.png" alt="" />
-        </div>
-      </div>
-
       <div class="message-input">
+        <!-- <textarea name="" id=""></textarea> -->
         <input
           type="text"
           class="text-input"

@@ -77,10 +77,12 @@ main {
   );
   min-height: fit-content;
   margin-right: 1.5rem;
-  width: 70%;
+  max-width: 70%;
   padding: 1rem;
   border-radius: 2rem;
   border-bottom-right-radius: 0;
+  line-break: auto;
+  overflow: hidden;
 }
 
 .assistant {
@@ -95,6 +97,7 @@ main {
   border-radius: 2rem;
   margin-left: 2.2rem;
   border-bottom-left-radius: 0;
+  overflow-x: auto;
 }
 
 .assistant__massage--icons {

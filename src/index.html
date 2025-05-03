@@ -36,22 +36,38 @@
       </div>
     </header>
     <main>
-      <!-- <div class="loader-container">
-        <span class="loader"></span>
-        <img src="./assets/icons/logo.png" alt="logo" />
-      </div> -->
       <div class="message-input">
         <!-- <textarea name="" id=""></textarea> -->
-        <input
+        <textarea
           type="text"
           class="text-input"
           id="input"
           placeholder="Send message..."
-        />
+        ></textarea>
         <div class="message-input__send">
           <i class="fa-solid fa-arrow-up"></i>
         </div>
       </div>
     </main>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+      // puter.ai.chat("What are the benefits of exercise?").then((response) => {
+      //   // puter.print(response)
+      //   console.log(response)
+      // })
+      // const history = [
+      //   { role: "user", content: "What are the benefits of exercise?" },
+      //   {
+      //     role: "assistant",
+      //     content:
+      //       "Exercise improves physical health, boosts mood, increases energy levels, and helps with weight control.",
+      //   },
+      //   { role: "user", content: "Can you explain how it helps with mood?" },
+      // ]
+
+      // puter.ai.chat({ messages: history }).then((response) => {
+      //   puter.print(response.content) // response will be an object with content
+      // })
+    </script>
   </body>
 </html>

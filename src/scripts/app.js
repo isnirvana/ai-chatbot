@@ -9,10 +9,8 @@ const baseURL = process.env.BASE_URL
 const model = process.env.MODEL
 
 const messages = [
-  {
-    role: "system",
-    content: "You are a helpful assistant.",
-  },
+  `role: "system",
+  content: "You are a helpful assistant."`,
 ]
 
 const openai = new OpenAI({
@@ -21,29 +19,18 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: "true",
 })
 
+let conversation
+
 async function fetchData() {
   const userInput = getInputValue()
 
-  const role = {
-    role: "user",
-    content: userInput,
-  }
-  messages.push(role)
+  messages.push(`"role": user, content: ${userInput}`)
 
-  const completion = await openai.chat.completions.create({
-    model: model,
-    messages: messages,
-  })
-  console.log(completion)
+  const completion = await puter.ai.chat(messages.join())
 
-  const result = completion.choices[0].message
+  const result = completion.message
 
-  const assistant = {
-    role: "assistant",
-    content: result.content,
-  }
-  messages.push(assistant)
-
+  messages.push(`"role": assistant, content: ${result.content}`)
   return { message: result.content, userInput: userInput }
 }
 

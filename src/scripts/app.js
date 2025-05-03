@@ -34,6 +34,7 @@ async function fetchData() {
     model: model,
     messages: messages,
   })
+  console.log(completion)
 
   const result = completion.choices[0].message
 
@@ -70,6 +71,7 @@ async function renderOnPage() {
     const html = marked.parse(message)
     console.log(results)
     createAssistantHTML(html)
+    scrollToBottom()
   } catch (error) {
     console.error(error)
   }
@@ -135,7 +137,9 @@ main.addEventListener("click", async (e) => {
 
   if (!target.classList.contains("fa-arrow-up")) return
   createUserHTML()
+  createLoaderHtml()
   renderOnPage()
+  input.value = ""
 })
 
 document.addEventListener("keydown", (e) => {
@@ -144,4 +148,9 @@ document.addEventListener("keydown", (e) => {
   createLoaderHtml()
   renderOnPage()
   input.value = ""
+  scrollToBottom()
 })
+
+function scrollToBottom() {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
+}

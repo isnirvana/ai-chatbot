@@ -215,3 +215,38 @@ main {
     box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
   }
 }
+
+pre {
+  background: #282c34;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 15px;
+}
+
+code {
+  font-family: "Fira Code", "Courier New", monospace;
+  background-color: #282c34;
+}
+
+div code {
+  /* background-color: #eee; */
+  color: wheat;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+strong {
+  color: var(--color-user-bubble-gradient-start);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+  padding: 1rem;
+}
+/* li {
+  color: red;
+} */

@@ -1,25 +1,13 @@
-import OpenAI from "openai"
 import logo from "../assets/icons/logo.png"
 
 const input = document.getElementById("input")
 const main = document.querySelector("main")
-
-const apiKey = process.env.API_KEY
-const baseURL = process.env.BASE_URL
-const model = process.env.MODEL
+const body = document.querySelector("body")
 
 const messages = [
   `role: "system",
   content: "You are a helpful assistant."`,
 ]
-
-const openai = new OpenAI({
-  baseURL: baseURL,
-  apiKey: apiKey,
-  dangerouslyAllowBrowser: "true",
-})
-
-let conversation
 
 async function fetchData() {
   const userInput = getInputValue()
@@ -119,8 +107,22 @@ function createElement(tag, className) {
   return element
 }
 
-main.addEventListener("click", async (e) => {
+body.addEventListener("click", async (e) => {
   const target = e.target
+  const menu = document.querySelector(".menu")
+  const overlay = document.querySelector(".overlay")
+
+  if (target.classList.contains("fa-bars")) {
+    menu.style.display = "flex"
+    overlay.style.display = "block"
+    body.style.overflow = "hidden"
+  }
+
+  if (target.classList.contains("fa-xmark")) {
+    menu.style.display = "none"
+    overlay.style.display = "none"
+    body.style.overflow = "auto"
+  }
 
   if (!target.classList.contains("fa-arrow-up")) return
   createUserHTML()

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Chatbot</title>
     <link rel="stylesheet" href="./stylesheets/main.css" />
+    <script src="https://js.puter.com/v2/"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link
       rel="stylesheet"
@@ -20,11 +21,8 @@
   </head>
   <body>
     <header>
-      <div class="menu"></div>
       <div class="expand-collaps">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
+        <i class="fa-solid fa-bars"></i>
       </div>
       <div class="logo">
         <span class="logo__icon">
@@ -35,6 +33,17 @@
         <button class="dark-light-mode">Light Mode</button>
       </div>
     </header>
+    <div class="menu">
+      <i class="fa-solid fa-xmark"></i>
+      <h2>History</h2>
+      <ul>
+        <li class="new-conversation">
+          New Conversation
+          <i class="fa-solid fa-plus"></i>
+        </li>
+      </ul>
+      <li>current section</li>
+    </div>
     <main>
       <div class="message-input">
         <!-- <textarea name="" id=""></textarea> -->
@@ -48,26 +57,7 @@
           <i class="fa-solid fa-arrow-up"></i>
         </div>
       </div>
+      <div class="overlay"></div>
     </main>
-    <script src="https://js.puter.com/v2/"></script>
-    <script>
-      // puter.ai.chat("What are the benefits of exercise?").then((response) => {
-      //   // puter.print(response)
-      //   console.log(response)
-      // })
-      // const history = [
-      //   { role: "user", content: "What are the benefits of exercise?" },
-      //   {
-      //     role: "assistant",
-      //     content:
-      //       "Exercise improves physical health, boosts mood, increases energy levels, and helps with weight control.",
-      //   },
-      //   { role: "user", content: "Can you explain how it helps with mood?" },
-      // ]
-
-      // puter.ai.chat({ messages: history }).then((response) => {
-      //   puter.print(response.content) // response will be an object with content
-      // })
-    </script>
   </body>
 </html>

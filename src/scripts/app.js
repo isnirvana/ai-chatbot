@@ -143,3 +143,17 @@ document.addEventListener("keydown", (e) => {
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
 }
+
+const screenSize = window.matchMedia("(min-width: 900px)")
+function changeSate() {
+  if (screenSize.matches) {
+    const overlay = document.querySelector(".overlay")
+    overlay.style.display = "none"
+  }
+}
+
+changeSate()
+
+screenSize.addEventListener("change", function () {
+  changeSate()
+})

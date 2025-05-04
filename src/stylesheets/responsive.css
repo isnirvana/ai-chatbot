@@ -1,0 +1,45 @@
+@media only screen and (min-width: 900px) {
+  body {
+    display: flex;
+    justify-content: center;
+    width: initial;
+  }
+
+  header {
+    width: 50%;
+    margin-left: 15%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    left: 0;
+  }
+
+  main {
+    position: initial;
+    width: 50%;
+    margin: auto;
+    margin-left: 33%;
+  }
+
+  .message-input {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    margin-left: 31%;
+  }
+
+  .text-input {
+    margin-left: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .overlay {
+    display: flex;
+  }
+}

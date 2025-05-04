@@ -90,6 +90,32 @@ main {
   padding-bottom: 10rem;
 }
 
+.introduction {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 2rem;
+  margin: auto;
+  text-align: center;
+}
+
+.introduction h1 {
+  font-size: 3rem;
+  line-height: 4rem;
+}
+
+.introduction span {
+  color: var(--color-button-background);
+}
+
+.introduction button {
+  width: 50%;
+}
+
+.introduction p {
+  letter-spacing: 0.5px;
+}
+
 .user {
   display: flex;
   justify-content: flex-end;
@@ -147,6 +173,7 @@ main {
 
 .message-input {
   display: flex;
+  display: none;
   position: fixed;
   width: 100%;
   margin-bottom: 1rem;
@@ -160,7 +187,7 @@ main {
 
 .text-input {
   margin: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   width: 90%;
   padding: 1.4rem 4.5rem 0 1rem;
   border-radius: 1rem;
@@ -177,7 +204,7 @@ main {
 
 .message-input__send {
   position: absolute;
-  top: 15%;
+  top: 12%;
   right: 10%;
 }
 
@@ -288,4 +315,18 @@ ul {
   background-color: green;
   z-index: 1;
   background-color: rgb(0, 0, 0, 0.8);
+}
+
+footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 12%;
+  z-index: 1;
+  margin: auto;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+footer a {
+  color: var(--color-user-bubble-gradient-start);
 }

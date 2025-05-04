@@ -111,7 +111,7 @@ function createElement(tag, className) {
   return element
 }
 
-function removeMenu() {
+function hideMenu() {
   menu.style.display = "none"
   overlay.style.display = "none"
   body.style.overflow = "auto"
@@ -127,7 +127,7 @@ body.addEventListener("click", async (e) => {
   }
 
   if (target.classList.contains("fa-xmark")) {
-    removeMenu()
+    hideMenu()
   }
 
   if (!target.classList.contains("fa-arrow-up")) return
@@ -144,7 +144,7 @@ menu.addEventListener("click", (e) => {
   messages.length = 0
   messages.push(`role: "system",
   content: "You are a helpful assistant."`)
-  removeMenu()
+  hideMenu()
   // const newConversation = target.closest(".new-conversation")
   console.log(messages)
 

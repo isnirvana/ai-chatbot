@@ -2,7 +2,9 @@ import logo from "../assets/icons/logo.png"
 
 const input = document.getElementById("input")
 const main = document.querySelector("main")
+const menu = document.querySelector(".menu")
 const body = document.querySelector("body")
+const overlay = document.querySelector(".overlay")
 
 const messages = [
   `role: "system",
@@ -29,6 +31,7 @@ function getInputValue() {
 }
 
 async function renderOnPage() {
+  const loader = document.querySelector(".loader-container")
   try {
     const results = await fetchData()
     const message = results.message
@@ -40,7 +43,6 @@ async function renderOnPage() {
       },
     })
 
-    const loader = document.querySelector(".loader-container")
     loader.remove()
 
     const html = marked.parse(message)
@@ -48,7 +50,9 @@ async function renderOnPage() {
     createAssistantHTML(html)
     scrollToBottom()
   } catch (error) {
-    console.error(error)
+    console.error(`The render error${error}`)
+    loader.remove()
+    createAssistantHTML(`Please sign in first`)
   }
 }
 
@@ -107,10 +111,14 @@ function createElement(tag, className) {
   return element
 }
 
+function removeMenu() {
+  menu.style.display = "none"
+  overlay.style.display = "none"
+  body.style.overflow = "auto"
+}
+
 body.addEventListener("click", async (e) => {
   const target = e.target
-  const menu = document.querySelector(".menu")
-  const overlay = document.querySelector(".overlay")
 
   if (target.classList.contains("fa-bars")) {
     menu.style.display = "flex"
@@ -119,9 +127,7 @@ body.addEventListener("click", async (e) => {
   }
 
   if (target.classList.contains("fa-xmark")) {
-    menu.style.display = "none"
-    overlay.style.display = "none"
-    body.style.overflow = "auto"
+    removeMenu()
   }
 
   if (!target.classList.contains("fa-arrow-up")) return
@@ -129,6 +135,20 @@ body.addEventListener("click", async (e) => {
   createLoaderHtml()
   renderOnPage()
   input.value = ""
+})
+
+menu.addEventListener("click", (e) => {
+  const target = e.target
+  if (!target.classList.contains("new-conversation")) return
+  main.innerHTML = "AL CHATBOT"
+  messages.length = 0
+  messages.push(`role: "system",
+  content: "You are a helpful assistant."`)
+  removeMenu()
+  // const newConversation = target.closest(".new-conversation")
+  console.log(messages)
+
+  console.log(target.closest(".new-conversation"))
 })
 
 document.addEventListener("keydown", (e) => {
@@ -147,8 +167,9 @@ function scrollToBottom() {
 const screenSize = window.matchMedia("(min-width: 900px)")
 function changeSate() {
   if (screenSize.matches) {
-    const overlay = document.querySelector(".overlay")
     overlay.style.display = "none"
+    menu.style.display = "flex"
+    body.style.overflow = "auto"
   }
 }
 

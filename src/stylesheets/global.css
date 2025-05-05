@@ -1,14 +1,18 @@
 :root {
+  --color-text-light: rgb(22, 22, 22);
+  --color-background-light: #ffffff;
+  /* --color-background-light: #ebebeb; */
+
   --color-background: #121212;
   --color-text-primary: #f5f5f5;
-  --color-text-secondary: #b0b0b0;
+  /* --color-text-secondary: #b0b0b0; */
   --color-user-bubble-gradient-start: #fc4baf;
   --color-user-bubble-gradient-end: #660466;
   --color-bot-bubble: #1e1e1e;
   --color-button-background: #d16ba5;
   --color-button-text: #ffffff;
   --color-divider: rgba(255, 255, 255, 0.1);
-  --color-icon: #ffffff;
+  /* --color-icon: #ffffff; */
 }
 
 * {

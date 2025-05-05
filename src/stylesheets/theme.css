@@ -1,0 +1,55 @@
+body.light {
+  background-color: var(--color-background-light);
+  color: var(--color-text-light);
+}
+
+header.light {
+  background: linear-gradient(to bottom, rgb(99, 98, 98), rgba(0, 0, 0, 0));
+}
+
+main.light {
+  color: var(--color-text-primary);
+}
+
+.introduction.light {
+  color: var(--color-text-light);
+}
+
+.get-started.light {
+  background-color: var(--color-user-bubble-gradient-end);
+}
+
+.assistant__massage.light {
+  background-color: rgb(242, 239, 239);
+  background-color: var(--color-background-light);
+  color: var(--color-text-light);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.message-input.light {
+  background-color: var(--color-background-light);
+  color: var(--color-text-primary);
+}
+
+.text-input.light {
+  background-color: var(--color-divider);
+  color: var(--color-text-light);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: none;
+}
+
+.fa-arrow-up.light {
+  color: var(--color-text-light);
+  background-color: var(--color-background-light);
+}
+s .loader.light {
+  color: var(--color-text-light);
+}
+
+hr.light {
+  opacity: 1;
+}
+
+.dark-light-mode.light {
+  background-color: var(--color-user-bubble-gradient-end);
+}

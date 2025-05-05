@@ -19,8 +19,8 @@
     ></script>
     <script src="./scripts/app.js" defer></script>
   </head>
-  <body>
-    <header>
+  <body class="theme">
+    <header class="theme">
       <div class="expand-collaps hide">
         <i class="fa-solid fa-bars"></i>
       </div>
@@ -29,8 +29,8 @@
           <img src="./assets/icons/logo.png" alt="logo" />
         </span>
       </div>
-      <div class="theme">
-        <button class="dark-light-mode">Light Mode</button>
+      <div class="mode">
+        <button class="dark-light-mode theme">Light Mode</button>
       </div>
     </header>
     <div class="menu">
@@ -44,13 +44,9 @@
           <i class="fa-solid fa-plus"></i>
         </li>
       </ul>
-      <li>
-        current section
-        <i class="fa-solid fa-trash"></i>
-      </li>
     </div>
-    <main>
-      <div class="introduction">
+    <main class="theme">
+      <div class="introduction theme">
         <h1>
           Welcome to <br />
           <span>Talkative</span> 👋
@@ -60,14 +56,14 @@
           <br />
           let's start the conversation!"
         </p>
-        <button class="get-started">GET STARTED</button>
+        <button class="get-started theme">GET STARTED</button>
       </div>
     </main>
-    <div class="message-input">
+    <div class="message-input theme">
       <!-- <textarea name="" id=""></textarea> -->
       <textarea
         type="text"
-        class="text-input"
+        class="text-input theme"
         id="input"
         placeholder="Send message..."
       ></textarea>

@@ -6,6 +6,7 @@ const menu = document.querySelector(".menu")
 const body = document.querySelector("body")
 const overlay = document.querySelector(".overlay")
 const introduction = document.querySelector(".introduction")
+const theme = document.querySelector(".dark-light-mode")
 
 let hasStarted = false
 
@@ -61,7 +62,7 @@ async function renderOnPage() {
   } catch (error) {
     console.error(`The render error${error}`)
     loader.remove()
-    createAssistantHTML(`Please sign in first`)
+    createAssistantHTML(`Something went wrong please try again`)
   }
 }
 
@@ -99,7 +100,7 @@ function createAssistantHTML(html) {
           <div class="message-text">
             ${html}
           </div>
-          <hr />
+          <hr/>
           <div class="assistant__massage--icons">
             <i class="fa-regular fa-copy"></i>
             <i class="fa-solid fa-arrows-rotate"></i>
@@ -130,16 +131,18 @@ function getAuthorized() {
   const getStarted = document.querySelector(".get-started")
 
   getStarted.innerHTML = `
-        <span class="intro-loader"></span>
-      `
+  <span class="intro-loader"></span>
+  `
   puter.ai
     .chat("hello")
     .then((response) => {
+      const expand = document.querySelector(".expand-collaps")
       const messageInput = document.querySelector(".message-input")
       introduction.innerHTML = `
         <h2>What can I help with?</h2>
       `
       messageInput.style.display = "flex"
+      expand.style.display = "block"
       body.style.overflow = "auto"
     })
     .catch((error) => {
@@ -185,6 +188,10 @@ menu.addEventListener("click", (e) => {
   messages.push(`role: "system",
   content: "You are a helpful assistant."`)
   hideMenu()
+})
+
+theme.addEventListener("click", () => {
+  alert("Feature not available yet")
 })
 
 let istyping = false

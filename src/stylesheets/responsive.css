@@ -48,9 +48,13 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 500px) {
   .introduction {
     margin-top: -20%;
+  }
+
+  .message-input__send {
+    right: 5%;
   }
 
   footer {

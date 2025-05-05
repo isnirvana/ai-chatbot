@@ -165,12 +165,6 @@ body.addEventListener("click", async (e) => {
   if (target.classList.contains("fa-xmark")) {
     hideMenu()
   }
-
-  if (!target.classList.contains("fa-arrow-up")) return
-  createUserHTML()
-  createLoaderHtml()
-  renderOnPage()
-  input.value = ""
 })
 
 menu.addEventListener("click", (e) => {
@@ -193,14 +187,34 @@ menu.addEventListener("click", (e) => {
   hideMenu()
 })
 
-document.addEventListener("keydown", (e) => {
-  if (e.key !== "Enter") return
+let istyping = false
+const inputSend = document.querySelector(".fa-arrow-up")
+
+input.addEventListener("input", (e) => {
+  istyping = true
+  if (!input.value) {
+    console.log(e)
+    inputSend.classList.remove("light")
+    istyping = false
+  }
+
+  if (istyping) {
+    inputSend.classList.add("light")
+    istyping = true
+  }
+  inputSend.addEventListener("click", sendMessage, { once: true })
+  console.log(inputSend)
+})
+
+function sendMessage() {
+  if (!input.value) return
   createUserHTML()
   createLoaderHtml()
   renderOnPage()
   input.value = ""
   scrollToBottom()
-})
+  inputSend.classList.remove("light")
+}
 
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })

@@ -6,6 +6,7 @@
   }
 
   header {
+    justify-content: space-between;
     width: 50%;
     margin-left: 15%;
   }
@@ -26,8 +27,11 @@
     margin-left: 33%;
   }
 
+  .introduction {
+    margin-bottom: -40%;
+  }
+
   .message-input {
-    display: flex;
     justify-content: center;
     width: 50%;
     margin: auto;
@@ -36,10 +40,20 @@
 
   .text-input {
     margin-left: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
   }
 
   .overlay {
     display: flex;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .introduction {
+    margin-top: -20%;
+  }
+
+  footer {
+    margin-right: 20%;
   }
 }

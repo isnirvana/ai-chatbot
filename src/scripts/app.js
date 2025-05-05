@@ -5,6 +5,9 @@ const main = document.querySelector("main")
 const menu = document.querySelector(".menu")
 const body = document.querySelector("body")
 const overlay = document.querySelector(".overlay")
+const introduction = document.querySelector(".introduction")
+
+let hasStarted = false
 
 const messages = [
   `role: "system",
@@ -32,6 +35,12 @@ function getInputValue() {
 
 async function renderOnPage() {
   const loader = document.querySelector(".loader-container")
+  hasStarted = true
+
+  if (hasStarted) {
+    introduction.style.display = "none"
+  }
+
   try {
     const results = await fetchData()
     const message = results.message
@@ -117,8 +126,35 @@ function hideMenu() {
   body.style.overflow = "auto"
 }
 
+function getAuthorized() {
+  const getStarted = document.querySelector(".get-started")
+
+  getStarted.innerHTML = `
+        <span class="intro-loader"></span>
+      `
+  puter.ai
+    .chat("hello")
+    .then((response) => {
+      const messageInput = document.querySelector(".message-input")
+      introduction.innerHTML = `
+        <h2>What can I help with?</h2>
+      `
+      messageInput.style.display = "flex"
+      body.style.overflow = "auto"
+    })
+    .catch((error) => {
+      alert(`Authentication canceled click on get started again`)
+      getStarted.innerHTML = "GET STARTED"
+      console.log(error.error.message)
+    })
+}
+
 body.addEventListener("click", async (e) => {
   const target = e.target
+
+  if (target.classList.contains("get-started")) {
+    getAuthorized()
+  }
 
   if (target.classList.contains("fa-bars")) {
     menu.style.display = "flex"
@@ -140,15 +176,21 @@ body.addEventListener("click", async (e) => {
 menu.addEventListener("click", (e) => {
   const target = e.target
   if (!target.classList.contains("new-conversation")) return
-  main.innerHTML = "AL CHATBOT"
+
+  main.innerHTML = ``
+
+  main.appendChild(introduction)
+  introduction.innerHTML = `
+    <h2>What can I help with?</h2>
+  `
+  introduction.style.display = "flex"
+  scrollToTop()
+  hasStarted = false
   messages.length = 0
+  input.value = ""
   messages.push(`role: "system",
   content: "You are a helpful assistant."`)
   hideMenu()
-  // const newConversation = target.closest(".new-conversation")
-  console.log(messages)
-
-  console.log(target.closest(".new-conversation"))
 })
 
 document.addEventListener("keydown", (e) => {
@@ -162,6 +204,10 @@ document.addEventListener("keydown", (e) => {
 
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" })
 }
 
 const screenSize = window.matchMedia("(min-width: 900px)")

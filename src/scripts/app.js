@@ -7,6 +7,7 @@ const body = document.querySelector("body")
 const overlay = document.querySelector(".overlay")
 const introduction = document.querySelector(".introduction")
 const theme = document.querySelector(".dark-light-mode")
+const inputSend = document.querySelector(".fa-arrow-up")
 
 let hasStarted = false
 let isauthorized = false
@@ -137,7 +138,6 @@ function getAuthorized() {
   puter.ai
     .chat("hello")
     .then((response) => {
-      console.log(response)
       isauthorized = true
       const expand = document.querySelector(".expand-collaps")
       const messageInput = document.querySelector(".message-input")
@@ -196,7 +196,9 @@ menu.addEventListener("click", (e) => {
   input.value = ""
   messages.push(`role: "system",
   content: "You are a helpful assistant."`)
+  inputSend.classList.remove("light")
   hideMenu()
+  changeSate()
 })
 
 theme.addEventListener("click", () => {
@@ -204,12 +206,10 @@ theme.addEventListener("click", () => {
 })
 
 let istyping = false
-const inputSend = document.querySelector(".fa-arrow-up")
 
 input.addEventListener("input", (e) => {
   istyping = true
   if (!input.value) {
-    console.log(e)
     inputSend.classList.remove("light")
     istyping = false
   }
@@ -219,7 +219,6 @@ input.addEventListener("input", (e) => {
     istyping = true
   }
   inputSend.addEventListener("click", sendMessage, { once: true })
-  console.log(inputSend)
 })
 
 function sendMessage() {

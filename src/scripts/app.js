@@ -9,6 +9,7 @@ const introduction = document.querySelector(".introduction")
 const theme = document.querySelector(".dark-light-mode")
 
 let hasStarted = false
+let isauthorized = false
 
 const messages = [
   `role: "system",
@@ -136,6 +137,8 @@ function getAuthorized() {
   puter.ai
     .chat("hello")
     .then((response) => {
+      console.log(response)
+      isauthorized = true
       const expand = document.querySelector(".expand-collaps")
       const messageInput = document.querySelector(".message-input")
       introduction.innerHTML = `
@@ -148,7 +151,7 @@ function getAuthorized() {
     .catch((error) => {
       alert(`Authentication canceled click on get started again`)
       getStarted.innerHTML = "GET STARTED"
-      console.log(error.error.message)
+      console.log(error)
     })
 }
 
@@ -172,6 +175,12 @@ body.addEventListener("click", async (e) => {
 
 menu.addEventListener("click", (e) => {
   const target = e.target
+
+  if (!isauthorized) {
+    alert("Click on Get Started")
+    return
+  }
+
   if (!target.classList.contains("new-conversation")) return
 
   main.innerHTML = ``

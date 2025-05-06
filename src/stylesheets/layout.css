@@ -22,7 +22,7 @@ header {
   top: 0;
   bottom: 0;
   width: 70%;
-  max-width: 25rem;
+  max-width: 20rem;
   background-color: var(--color-bot-bubble);
   z-index: 3;
 }

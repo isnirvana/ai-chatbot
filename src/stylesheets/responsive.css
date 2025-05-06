@@ -8,7 +8,7 @@
   header {
     justify-content: space-between;
     width: 50%;
-    margin-left: 15%;
+    /* margin-left: 15%; */
   }
 
   .hide {
@@ -16,7 +16,7 @@
   }
 
   .menu {
-    display: flex;
+    /* display: flex; */
     left: 0;
   }
 
@@ -24,7 +24,7 @@
     position: initial;
     width: 50%;
     margin: auto;
-    margin-left: 33%;
+    /* margin-left: 33%; */
   }
 
   .introduction {
@@ -35,7 +35,7 @@
     justify-content: center;
     width: 50%;
     margin: auto;
-    margin-left: 31%;
+    /* margin-left: 31%; */
   }
 
   .text-input {
@@ -45,6 +45,10 @@
 
   .overlay {
     display: flex;
+  }
+
+  footer {
+    padding-right: 10%;
   }
 }
 
@@ -58,6 +62,6 @@
   }
 
   footer {
-    margin-right: 20%;
+    margin-right: 18.5%;
   }
 }

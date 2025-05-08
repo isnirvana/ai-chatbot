@@ -8,6 +8,7 @@ const overlay = document.querySelector(".overlay")
 const introduction = document.querySelector(".introduction")
 const theme = document.querySelector(".dark-light-mode")
 const inputSend = document.querySelector(".fa-arrow-up")
+const expand = document.querySelector(".expand-collaps")
 
 let hasStarted = false
 let isauthorized = false
@@ -139,7 +140,6 @@ function getAuthorized() {
     .chat("hello")
     .then((response) => {
       isauthorized = true
-      const expand = document.querySelector(".expand-collaps")
       const messageInput = document.querySelector(".message-input")
       introduction.innerHTML = `
         <h2>What can I help with?</h2>
@@ -147,6 +147,7 @@ function getAuthorized() {
       messageInput.style.display = "flex"
       expand.style.display = "block"
       body.style.overflow = "auto"
+      changeSate()
     })
     .catch((error) => {
       alert(`Authentication canceled click on get started again`)
@@ -240,11 +241,19 @@ function scrollToTop() {
 }
 
 const screenSize = window.matchMedia("(min-width: 900px)")
+const mobileSize = window.matchMedia("(max-width: 900px)")
 function changeSate() {
   if (screenSize.matches) {
     overlay.style.display = "none"
     menu.style.display = "flex"
     body.style.overflow = "auto"
+    expand.style.display = "none"
+  }
+}
+
+function changeMobileSate() {
+  if (mobileSize.matches) {
+    expand.style.display = "block"
   }
 }
 
@@ -252,4 +261,5 @@ changeSate()
 
 screenSize.addEventListener("change", function () {
   changeSate()
+  changeMobileSate()
 })
